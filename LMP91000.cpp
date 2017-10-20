@@ -79,7 +79,7 @@ uint8_t LMP91000::read(uint8_t reg) const
     Wire.write(reg);
     Wire.endTransmission(false);
     
-    Wire.requestFrom(LMP91000_I2C_ADDRESS, 0x01);
+    Wire.requestFrom(LMP91000_I2C_ADDRESS, LMP91000_LOCK_REG);
     while(Wire.available()){
         data = Wire.read();
     }
